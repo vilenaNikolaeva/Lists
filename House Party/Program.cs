@@ -8,47 +8,42 @@ namespace House_Party
     {
         static void Main(string[] args)
         {
-            int people = int.Parse(Console.ReadLine());
-            string command = string.Empty;
-            int count = 0;
-            List<string> guests = new List<string>();
+            var lines = int.Parse(Console.ReadLine());
+            List<string> names = new List<string>();
 
-            while (count<people)
+            for (int i = 0; i < lines; i++)
             {
-                command = Console.ReadLine();
-                string[] splitedCommand = command.Split();
-                string personName = splitedCommand[0];
-                string verefication = splitedCommand[2];
-
-                if (verefication == "going")
+                var input = Console.ReadLine();
+                var splitedInput = input.Split(" ");
+                var name = splitedInput[0];
+                var command = splitedInput[2];
+                if (command=="not")
                 {
-                    if (!guests.Contains(personName))
+                    if (names.Contains(name))
                     {
-                        guests.Add(personName);
+                        names.Remove(name);
                     }
                     else
                     {
-                        Console.WriteLine($"{personName} is already in the list!");
+                        Console.WriteLine($"{name} is not in the list");
                     }
                 }
-                if (verefication == "not")
+                else if (command=="going!")
                 {
-                    if (guests.Contains(personName))
+                    if (names.Contains(name))
                     {
-                        guests.Remove(personName);
+                        if (names.Contains(name))
+                        {
+                            Console.WriteLine($"{name} is already in the list!");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine($"{personName} is not in the list!");
+                        names.Add(name);
                     }
                 }
-
-                count++;
             }
-            foreach (string guest in guests)
-            {
-                Console.WriteLine(guest);
-            }
+            Console.WriteLine(string.Join(Environment.NewLine,names));
         }
     }
 }
