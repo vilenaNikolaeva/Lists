@@ -69,25 +69,6 @@ namespace List_Operation
                             }
                             countTimes = 0;
                         }
-                        else
-                        //{
-                        //    for (int i = numbers.Count-1; i >= 0; i--)
-                        //    {
-                        //        if(countTimes != int.Parse(splited[2]))
-                        //        {
-                        //            int currentNumber = numbers[i];
-                        //            numbers.Remove(currentNumber);
-                        //            numbers.Insert(0,currentNumber);
-                                    
-                        //        }
-                        //        else if (countTimes == int.Parse(splited[2]))
-                        //        {
-                        //            break;
-                        //        }
-                        //        countTimes++;
-                        //    }
-                        //    countTimes = 0;
-                        //}
                         break;
                     case "End":
                     break;
@@ -95,7 +76,6 @@ namespace List_Operation
                     default:
                         break;
                 }
-                Console.WriteLine(string.Join(" ", numbers));
             }
             if (command=="End")
             {
